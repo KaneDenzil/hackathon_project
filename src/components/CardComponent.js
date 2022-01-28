@@ -48,11 +48,13 @@ const labelData = [
 ];
 
 const CardComponent = (props) => {
+
+    const { centerName, centerAddress } = props
     return (
         <CardContainer>
             <CardHeader>
                 <ColumnContainer>
-                    <HeaderText>Early Childhood Fun Center</HeaderText>
+                    <HeaderText>{centerName}</HeaderText>
                     <StyledIcons src={BookMark} alt="bookmark Image" />
                 </ColumnContainer>
                 <LabelContainer>
@@ -83,7 +85,7 @@ const CardComponent = (props) => {
                     <LocationContainer>
                         <LocationAndTimingIcon src={location} alt='address Icon' />
                         <LocationAndTimingText>
-                            438 University Ave 1900, Toronto, ON
+                            {centerAddress}
                         </LocationAndTimingText>
                     </LocationContainer>
                     <AddressContainer>

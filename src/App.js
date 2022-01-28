@@ -8,7 +8,8 @@ import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
 
 function App() {
   const [showCard, setShowCard] = useState(false);
-
+  const [nameOfCenter, setNameOfCenter] = useState('Early Childhood Fun Center')
+  const [centerAddress, setCenterAddress] = useState('438 University Ave #1900, Toronto, ON')
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAvdfaE1dTWVM-HnzYOqrc5mTh2FUaXaXk"
@@ -27,8 +28,10 @@ function App() {
     flex-direction: column;
   `;
 
-  const handlePopUp = () => {
+  const handlePopUp = (name, address) => {
     setShowCard(true);
+    setNameOfCenter(name);
+    setCenterAddress(address);
   }
 
   return (
@@ -39,11 +42,11 @@ function App() {
           onClick={() => setShowCard(false)}
           mapContainerStyle={{ width: "100vw", height: "100vh" }}
         >
-          {markers.map(({ loc_id, name, position }) => (
+          {markers.map(({ loc_id, agency, position, full_address }) => (
             <Marker
               key={loc_id}
               position={position}
-              onClick={() => handlePopUp()}
+              onClick={() => handlePopUp(agency, full_address)}
             >
             </Marker>
           ))}
@@ -53,7 +56,7 @@ function App() {
       {
         showCard && (
           <SwipeableBottomSheet overflowHeight={100}>
-            <CardComponent />
+            <CardComponent centerName={nameOfCenter} centerAddress={centerAddress} />
           </SwipeableBottomSheet>
         )
       }

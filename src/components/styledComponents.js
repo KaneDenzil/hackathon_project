@@ -94,3 +94,8 @@ export const LocationAndTimingIcon = styled.img`
     height: 24px;
     padding-right: 10px;
 `;
+
+export const DropInText = styled.text`
+    font-size: 16px;
+    line-height: 24px;
+`;
