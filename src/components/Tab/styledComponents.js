@@ -41,6 +41,30 @@ line-height: 16px;
 
 export const ReviewContainer = styled.div`
 
-`
+`;
 export const ReviewName = styled.text`
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+padding-right: 15px;
+`;
+export const ReviewDescription = styled.text`
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+`;
+
+export const ReviewComment = styled.text`
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+padding: 10px 0px;
+
+`;
+
+export const ReviewWrapper = styled.div`
+padding: 10px 0px;
+
 `
